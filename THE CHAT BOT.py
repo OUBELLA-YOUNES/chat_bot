@@ -148,7 +148,7 @@ def main(page: ft.Page):
     input_zone = ft.TextField(
         hint_text="Chatez avec votre chatbot...",
         width=300,
-        height=40,
+        height=70,
         fill_color=ft.colors.LIGHT_BLUE_100,
         color=ft.colors.BLUE_GREY_900,
         hint_style=ft.TextStyle(color=ft.colors.BLUE_GREY_300),
@@ -173,21 +173,29 @@ def main(page: ft.Page):
         )
     )
 
-    # Main container with chat log and input field
+    
+  # Main container with chat log and input field
     main_container = ft.Container(
-        content=ft.Column(
-            [   title ,
-                chat_log,
-                ft.Row([input_zone, send_button], alignment=ft.MainAxisAlignment.CENTER, spacing=10)
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            horizontal_alignment=ft.CrossAxisAlignment.CENTER
-        ),
-        alignment=ft.alignment.center,
-        padding=20,  # Use a simple integer for uniform padding
-        width=580,  # Fixed width to maintain layout
-        height=700, # Fixe
-    )
+    content=ft.Column(
+        [
+            title,
+            chat_log,
+            ft.Row(
+                [input_zone, send_button],
+                alignment=ft.MainAxisAlignment.CENTER,
+                spacing=10
+            )
+        ],
+        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,  # Distribute elements with space between them
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER
+    ),
+    alignment=ft.alignment.top_center,  # Push everything slightly upwards
+    padding=10,  # Reduce padding for better spacing
+    width=580,  # Fixed width to maintain layout
+    height=600,  # Fixed height
+)
+
+
 
     # Use Stack to layer the background image behind the chat interface
     page.add(
